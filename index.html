@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Cadastro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form>
+        <h1>Cadastro</h1>
+        <div class="Alldivs">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required/>
+        </div>
+        <div class="Alldivs">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" title="Endereço de Email Inválido" required/>
+        </div>
+        <div class="Alldivs">
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$" title="Senha Fraca" required/>
+            <button type="button" id="senhaHelp" class="botaoHelp">?</button>
+            <dialog id="senhaDialog">
+                <p>Senha Fraca</p>
+                <p>Deve conter no mínimo 8 caracteres</p>
+                <p>Deve conter pelo menos uma letra maiúscula</p>
+                <p>Deve conter pelo menos uma letra minúscula</p>
+                <p>Deve conter pelo menos um número</p>
+                <p>Deve conter pelo menos um caractere especial</p>
+                <button type="button" id="close">Fechar</button>
+            </dialog>
+        </div>
+        <div class="Alldivs">
+            <label for="genero">Gênero:</label>
+            <div class="containerForRadios">
+                <div class="insideContainerRadios">
+                    <input type="radio" name="genero" id="masculino" value="masculino"/>
+                    <label for="masculino">Masculino</label>    
+                </div>
+                <div class="insideContainerRadios">
+                    <input type="radio" name="genero" id="feminino" value="feminino" />
+                    <label for="feminino">Feminino</label>
+                </div>
+            </div>
+        </div>
+        <div class="Alldivs">
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" name="data_nascimento" id="data_nascimento" required />
+        </div>
+        <div class="Alldivs">
+            <label for="pais">País</label>
+            <select name="pais" id="pais">
+                <option value="brasil">Brasil</option>
+                <option value="argentina">Argentina</option>
+                <option value="paraguai">Paraguai</option>
+                <option value="uruguai">Uruguai</option>
+                <option value="chile">Chile</option>
+                <option value="bolivia">Bolívia</option>
+                <option value="peru">Peru</option>
+                <option value="equador">Equador</option>
+                <option value="colombia">Colômbia</option>
+                <option value="venezuela">Venezuela</option>
+                <option value="guiana">Guiana</option>
+                <option value="suriname">Suriname</option>
+                <option value="guiana_francesa">Guiana Francesa</option>
+            </select>
+        </div>
+        <div class="Alldivs">
+            <label for="telefone">Telefone:</label>
+            <input type="text" name="telefone" id="telefone" pattern="^(1[1-9]|[4689][0-9]|2[12478]|3([1-5]|[7-8])|5([13-5])|7[193-7])9[0-9]{8}$" title="Telefone inválido" required />
+        </div>
+        <div class="ContainerDivCheckBox">
+            <div class="DivCheckBox">
+                <input type="checkbox" name="aceito_termos" id="aceito_termos" required />
+                <label for="aceito_termos">Aceito os termos e condições</label>
+            </div>
+            <div class="DivCheckBox">
+                <input type="checkbox" name="newsletter" id="newsletter" />
+                <label for="newsletter">Inscrever-se na Newsletter</label>
+            </div>
+        </div>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+        document.getElementById('senhaHelp').addEventListener('click', function() {
+            document.getElementById('senhaDialog').showModal();
+        });
+
+        document.getElementById('close').addEventListener('click', function() {
+            document.getElementById('senhaDialog').close();
+        });
+    </script>
+</body>
+</html>
